@@ -1,465 +1,526 @@
 # Assignment-lab-intro-DS
-# NAME: V MYTHILI
-# DEPT: CSE
+# NAME: INFANTINA MARIA L
+# REG: 212223100013
+# DEPT: CSE [CYBER SECURITY]
 # AIM:
 To write a python program for inserting columns, rows and changing these etc.
 # PROGRAM AND OUTPUT:
 ```
+1.
 import pandas as pd
-df = pd.DataFrame(
-    {"a" : [4, 5, 6],
-     "b" : [7, 8, 9],
-     "c" : [10, 11, 12]},
-    index = [1, 2, 3]
-)
+data=[['alex',10],['bob',10]]
+df=pd.DataFrame(data,columns=['Name','Age'])
 print(df)
-   a  b   c
-1  4  7  10
-2  5  8  11
-3  6  9  12
 
-[ ]
-import pandas as pd
-df = pd.DataFrame(
-    [[4,7,10],[5,8,11],[6,9,12]],index=[1,2,3],columns=["a","b","c"])
-print(df)
-   a  b   c
-1  4  7  10
-2  5  8  11
-3  6  9  12
-
-[ ]
-import pandas as pd
-data=[1,2,3,4]
-df = pd.DataFrame(data)
-print(df)
-   0
-0  1
-1  2
-2  3
-3  4
-
-[ ]
-import pandas as pd
-data = [['Alex',10],['Bob',12]]
-df = pd.DataFrame(data,columns=['Name','Age'])
-print(df)
+OUTPUT:
    Name  Age
-0  Alex   10
-1   Bob   12
+0  alex   10
+1   bob   10
 
-[ ]
+2.
 import pandas as pd
-data = {'Name':['Tom','Jack','Steve','Ricky'],'Age':[28,34,29,42]}
-df = pd.DataFrame(data)
+df=pd.DataFrame({"a":[1,2,3],"b":[2,3,4],"c":[4,5,6]},index=[1,2,3])
 print(df)
-    Name  Age
-0    Tom   28
-1   Jack   34
-2  Steve   29
-3  Ricky   42
 
-[ ]
-import pandas as pd
-mydataset={
-    'cars':["BMW","Volvo","Ford"],
-    'passings':[3,7,2]
-}
-myvar=pd.DataFrame(mydataset)
-print(myvar)
-    cars  passings
-0    BMW         3
-1  Volvo         7
-2   Ford         2
+OUTPUT:
+   a  b  c
+1  1  2  4
+2  2  3  5
+3  3  4  6
 
-[ ]
+3.
 import pandas as pd
-data=[{'a':1,'b':2},{'a':5,'b ':10,'c':20}]
+df=pd.DataFrame({'car':["bmw","volvo"],'passing':[3,7]},index=[1,2])
+print(df)
+
+OUTPUT:
+     car  passing
+1    bmw        3
+2  volvo        7
+
+4.
+import pandas as pd
+data=[{'a':1,'b':2},{'a':3,'b':10,'c':20}]
 df=pd.DataFrame(data)
-df
+print(df)
 
+OUTPUT:
+   a   b     c
+0  1   2   NaN
+1  3  10  20.0
 
-[ ]
+5.
 import pandas as pd
-df = pd.DataFrame(data,index=['first','second'])
-df
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+address=['america','london','swizterland']
+df["Address"]=address
+print(df)
 
+OUTPUT:
+     Name  height qualification      Address
+0    arul     5.7            BE      america
+1   maria     5.6            BE       london
+2  dharsh     5.5            BE  swizterland
 
-[ ]
+6.
 import pandas as pd
-df1 = pd.DataFrame(data,index=['first','second'],columns=['a','b'])
-df1
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+address=['america','london','swizterland']
+df["Address"]=address
+print(df)
+del df["Address"]
+print(df)
 
+OUTPUT:
+     Name  height qualification      Address
+0    arul     5.7            BE      america
+1   maria     5.6            BE       london
+2  dharsh     5.5            BE  swizterland
+     Name  height qualification
+0    arul     5.7            BE
+1   maria     5.6            BE
+2  dharsh     5.5            BE
 
-[ ]
+7.
 import pandas as pd
-data={'Name':['jai','princi','Gaurav','Anuj'],'Height':[5.1,6.2,5.1,5.2],'Qualification':['Msc','MA','Msc','Msc']}
-df = pd.DataFrame(data)
-address=['Delhi','Bangalore','Chennai','Patna']
-df['Address']=address
-df
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+address=['america','london','swizterland']
+df["Address"]=address
+print(df)
+del df["Address"]
+print(df)
+df.drop(['height'],axis=1,inplace=True)
+print(df)
 
+OUTPUT:
+     Name  height qualification      Address
+0    arul     5.7            BE      america
+1   maria     5.6            BE       london
+2  dharsh     5.5            BE  swizterland
+     Name  height qualification
+0    arul     5.7            BE
+1   maria     5.6            BE
+2  dharsh     5.5            BE
+     Name qualification
+0    arul            BE
+1   maria            BE
+2  dharsh            BE
 
-[ ]
+8.
 import pandas as pd
-data = {'Name':['Jai','Princi','Gaurav','Anuj'],'Age':[27,24,22,32],'Address':['Delhi','Kanpur','Allahabad','Kannauj'],
-        'Qualification':['Msc','MA','MCA','Phd'],'address':['Delhi','Bangalore','Chennai','Patna']}
-df = pd.DataFrame(data)
-del df['Address']
-df
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+address=['america','london','swizterland']
+df["Address"]=address
+print(df)
+del df["Address"]
+print(df)
+df.drop(['height'],axis=1,inplace=True)
+print(df)
+df.pop("Name")
+print(df)
 
+OUTPUT:
+     Name  height qualification      Address
+0    arul     5.7            BE      america
+1   maria     5.6            BE       london
+2  dharsh     5.5            BE  swizterland
+     Name  height qualification
+0    arul     5.7            BE
+1   maria     5.6            BE
+2  dharsh     5.5            BE
+     Name qualification
+0    arul            BE
+1   maria            BE
+2  dharsh            BE
+  qualification
+0            BE
+1            BE
+2            BE
 
-
-
-[ ]
-df.drop(['Address'],axis=1,inplace=True)
-df
-
-
-[ ]
-df.pop('Age')
-df
-
-
-[ ]
+9.
 import pandas as pd
-data = {'Name':['Jai','Princi','Gaurav','Anuj'],'Age':[27,24,22,32],'Address':['Delhi','Kanpur','Allahabad','Kannauj'],
-        'Qualification':['Msc','MA','MCA','Phd']}
-df = pd.DataFrame(data)
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+address=['america','london','swizterland']
+df["Address"]=address
 print(df)
 df.rename(columns={'Address':'place'},inplace=True)
-df
+print(df)
 
+OUTPUT:
+     Name  height qualification      Address
+0    arul     5.7            BE      america
+1   maria     5.6            BE       london
+2  dharsh     5.5            BE  swizterland
+     Name  height qualification        place
+0    arul     5.7            BE      america
+1   maria     5.6            BE       london
+2  dharsh     5.5            BE  swizterland
 
-
-[ ]
+10.
 import pandas as pd
-df = pd.DataFrame([[1,2],[3,4]],columns=['a','b'])
-df2= pd.DataFrame([[5,6],[7,8]],columns=['a','b'])
+df=pd.DataFrame([[1,2],[3,4]],columns=['a','b'])
+df2=pd.DataFrame([[5,6],[7,8]],columns=['a','b'])
 df=pd.concat([df,df2])
-df
-
-
-[ ]
-import pandas as pd
-data = {'Name':['Jai','Princi','Gaurav','Anuj'],'Age':[27,24,22,32],'Address':['Delhi','Kanpur','Allahabad','Kannauj'],
-        'Qualification':['Msc','MA','MCA','Phd']}
-df = pd.DataFrame(data)
-df
-df.drop(1,axis=0,inplace=True)
-df
-
-
-
-
-[ ]
-import pandas as pd
-data = {'name':['Alice','Bob'],'age':[25,32],'gender':['F','M'],'height':[1.2,5.6]}
-df = pd.DataFrame(data)
-df = df['name']
 print(df)
-0    Alice
-1      Bob
-Name: name, dtype: object
 
-[ ]
-import pandas as pd
-data = {'Name':['Jai','Princi','Gaurav','Anuj'],'Age':[27,24,22,32],'Address':['Delhi','Kanpur','Allahabad','Kannauj'],
-        'Qualification':['Msc','MA','MCA','Phd']}
-df = pd.DataFrame(data)
-print(df[['Name','Qualification']])
-     Name Qualification
-0     Jai           Msc
-1  Princi            MA
-2  Gaurav           MCA
-3    Anuj           Phd
+OUTPUT:
+   a  b
+0  1  2
+1  3  4
+0  5  6
+1  7  8
 
-[ ]
+11.
 import pandas as pd
-data = {'name':['tara','Bob'],'age':[25,32],'gender':['F','M'],'height':[1.2,5.6]}
-df = pd.DataFrame(data)
-#df.filter(items=['name','age'])
-df.filter(like='eigh')
-#df.filter(regex='e|a',axis=1)
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
 print(df)
-   name  age gender  height
-0  tara   25      F     1.2
-1   Bob   32      M     5.6
-
-[ ]
-import pandas as pd
-data = {'name':['Alice','Bob'],'age':[25,32],'gender':['F','M'],'height':[1.2,5.6]}
-#df = pd.DataFrame(data)
-df.filter(like='eigh')
-#df.filter(regex='e|a',axis=1)
+df.drop(0,axis=0,inplace=True)
 print(df)
-    name  age gender  height
-0  Alice   25      F     1.2
-1    Bob   32      M     5.6
 
-[ ]
+OUTPUT:
+     Name  height qualification
+0    arul     5.7            BE
+1   maria     5.6            BE
+2  dharsh     5.5            BE
+     Name  height qualification
+1   maria     5.6            BE
+2  dharsh     5.5            BE
+
+12.
 import pandas as pd
-data = {'Name':['Jai','Princi','Gaurav','Anuj'],'Age':[27,24,22,32],'Address':['Delhi','Kanpur','Allahabad','Kannauj'],
-        'Qualification':['Msc','MA','MCA','Phd']}
-df.filter(regex='e|a',axis=1)
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df=df['Name']
 print(df)
-     Name  Age    Address Qualification
-0     Jai   27      Delhi           Msc
-1  Princi   24     Kanpur            MA
-2  Gaurav   22  Allahabad           MCA
-3    Anuj   32    Kannauj           Phd
 
-[ ]
+OUTPUT:
+0      arul
+1     maria
+2    dharsh
+Name: Name, dtype: object
+
+13.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','Alice'],'age':[25,32,18,25],'gender':['F','M','M','F'],'height':[1.2,5.6,2.3,1.2]}
-df = pd.DataFrame(data)
-df = df.drop_duplicates()
-df
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+print(df[['Name','qualification']])
 
+OUTPUT:
+     Name qualification
+0    arul            BE
+1   maria            BE
+2  dharsh            BE
 
-[ ]
+14.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','Alice'],'age':[25,32,18,26],'gender':['F','M','M','F'],'height':[1.2,5.6,2.3,1.2]}
-df = pd.DataFrame(data)
-df = df.drop_duplicates(['name','age'])
-df
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df.filter(like='eigh') #column with eigh
+df.filter(items=['Name','qualification']) #both name and qualification
+df.filter(regex='a|e',axis=1) #column with a or e
 
+OUTPUT:
+	Name 	height 	qualification
+0 	arul 	5.7 	BE
+1 	maria 	5.6 	BE
+2 	dharsh 	5.5 	BE
 
-[ ]
+15.
 import pandas as pd
-data = {'name':['Alice','Bob','Bob','Alice'],'age':[25,18,18,26],'gender':['F','M','M','F'],'height':[1.2,5.6,2.3,1.2]}
-df = pd.DataFrame(data)
-df = df.drop_duplicates(subset=['name','age'])
-df
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df=df.drop_duplicates('height')
+print(df)
 
+OUTPUT:
+     Name  height qualification
+0    arul     5.7            BE
+1   maria     5.6            BE
+2  dharsh     5.5            BE
 
-
-[ ]
+16.
 import pandas as pd
-data = {'name':['Alice','Bob','Bob','Alice'],'age':[25,18,18,26],'gender':['F','M','F','F'],'height':[1.2,5.6,2.3,1.2]}
-df = pd.DataFrame(data)
-df = df.drop_duplicates(subset=['name','age'],keep='last')
-df
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df=df.drop_duplicates()
+print(df)
 
+OUTPUT:
+     Name  height qualification
+0    arul     5.7            BE
+1   maria     5.6            BE
+2  dharsh     5.5            BE
 
-[ ]
+17.
 import pandas as pd
-data = {'Name':['Jai','Princi','Gaurav','Anuj'],'Age':[27,24,22,32],
-        'Qualification':['Msc','MA','MCA','Phd']}
-df = pd.DataFrame(data)
-df_sample = df.sample(n=2)
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df=df.drop_duplicates(subset=['Name','height'])
+print(df)
+
+OUTPUT:
+     Name  height qualification
+0    arul     5.7            BE
+1   maria     5.6            BE
+2  dharsh     5.5            BE
+
+18.
+import pandas as pd
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df=df.drop_duplicates(subset=['Name','height'],keep='last') #deletes the first duplicate and keeps the last
+print(df)
+
+OUTPUT:
+     Name  height qualification
+0    arul     5.7            BE
+1   maria     5.6            BE
+2  dharsh     5.5            BE
+
+19.
+import pandas as pd
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df_sample=df.sample(n=2)
 print(df_sample)
-     Name  Age Qualification
-1  Princi   24            MA
-3    Anuj   32           Phd
 
-[ ]
+OUTPUT:
+     Name  height qualification
+2  dharsh     5.5            BE
+1   maria     5.6            BE
+
+20.
 import pandas as pd
-data = {'Name':['Jai','Princi','Gaurav','Anuj'],'Age':[27,24,22,32],
-        'Qualification':['Msc','MA','MCA','Phd']}
-df = pd.DataFrame(data)
-df_sample = df.sample(frac=0.5)
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df_sample=df.sample(frac=0.5)
 print(df_sample)
-     Name  Age Qualification
-2  Gaurav   22           MCA
-1  Princi   24            MA
 
-[ ]
- import pandas as pd
- data = {'name':['Alice','Bob','Charlie','David','Emily'],'age':[25,30,35,40,45],'salary':[50000,60000,70000,80000,90000]}
- df = pd.DataFrame(data)
- top_salary = df.nlargest(2,columns='salary')
- print(top_salary)
+OUTPUT:
+     Name  height qualification
+2  dharsh     5.5            BE
+0    arul     5.7            BE
 
-    name  age  salary
-4  Emily   45   90000
-3  David   40   80000
-
-[ ]
- import pandas as pd
- data = {'name':['Alice','Bob','Charlie','David','Emily'],'age':[25,30,35,40,45],'salary':[50000,60000,70000,80000,90000]}
- df = pd.DataFrame(data)
- top_salary = df.nsmallest(2,columns='salary')
- print(top_salary)
-    name  age  salary
-0  Alice   25   50000
-1    Bob   30   60000
-
-[ ]
+21.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
-df=df.query('name.str.contains("a") and height >1.7')
-print(df)
-    name  age gender  height
-3  David   40      M    1.83
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'qualification':['BE','BE','BE']}
+df=pd.DataFrame(data)
+df_sample=df.sample(n=2,axis=1)
+print(df_sample)
 
-[ ]
-import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
-df = df.query('age >= 30')
-print(df)
-      name  age gender  height
-1      Bob   30      M    1.78
-2  Charlie   35      M    1.63
-3    David   40      M    1.83
-4    Emily   45      F    1.72
+OUTPUT:
+  qualification  height
+0            BE     5.7
+1            BE     5.6
+2            BE     5.5
 
-[ ]
+22.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
-df = df.query('gender == ["F","M"] and height <= 1.65')
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'salary':[70000,80000,90000]}
+df=pd.DataFrame(data)
+top_salary=df.nlargest(2,columns='salary')
+print(top_salary)
+
+OUTPUT:
+     Name  height  salary
+2  dharsh     5.5   90000
+1   maria     5.6   80000
+
+23.
+import pandas as pd
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'salary':[70000,80000,90000]}
+df=pd.DataFrame(data)
+top_salary=df.nsmallest(2,columns='salary')
+print(top_salary)
+
+OUTPUT:
+    Name  height  salary
+0   arul     5.7   70000
+1  maria     5.6   80000
+
+24.
+import pandas as pd
+data={'Name':['arul','maria','dharsh'],'height':[5.7,5.6,5.5],'salary':[70000,80000,90000]}
+df=pd.DataFrame(data)
+df=df.query('height>5.6')
 print(df)
 
-      name  age gender  height
-0    Alice   25      F    1.62
-2  Charlie   35      M    1.63
+OUTPUT:
+   Name  height  salary
+0  arul     5.7   70000
 
-[ ]
+25.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78]}
+df=pd.DataFrame(data)
+df=df.query('Name.str.contains("a")and height>1.7')#checking condition ,and
+print(df)
+
+OUTPUT:
+   Name  age  height
+2  uday   40    1.78
+
+26.
+import pandas as pd
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
+df=df.query('gender==["f","m"]and height<=1.65')
+print(df)
+
+OUTPUT:
+   Name  age  height gender
+0  arul   23    1.62      f
+1  tina   24    1.65      f
+
+27.
+import pandas as pd
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
 df.loc[:,'age']
 
+OUTPUT:
+0    23
+1    24
+2    40
+Name: age, dtype: int64
 
-[ ]
+28.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
-df.loc[:,['name','age']]
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
+df.iloc[:,1]
 
+OUTPUT:
+0    23
+1    24
+2    40
+Name: age, dtype: int64
 
-[ ]
+29.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
-df.iloc[:,0]
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
+df.loc[:,['Name','age']]
 
+OUTPUT:
+	Name 	age
+0 	arul 	23
+1 	tina 	24
+2 	uday 	40
 
-[ ]
+30.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
-df_filtered = df[df['age'] > 30]
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
+df_filtered=df[df['age']>30]
 print(df_filtered)
-      name  age gender  height
-2  Charlie   35      M    1.63
-3    David   40      M    1.83
-4    Emily   45      F    1.72
 
-[ ]
+OUTPUT:
+   Name  age  height gender
+2  uday   40    1.78      f
+
+31.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
-df_filtered = df[(df['gender'] == 'M') & (df['height'] > 1.5)]
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
+df_filtered=df[df['Name'].str.startswith(('a','u'))]
 print(df_filtered)
-      name  age gender  height
-1      Bob   30      M    1.78
-2  Charlie   35      M    1.63
-3    David   40      M    1.83
 
-[ ]
+OUTPUT:
+   Name  age  height gender
+0  arul   23    1.62      f
+2  uday   40    1.78      f
+
+32.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],
-         'age':[25,30,35,40,45],
-         'gender':['F','M','M','M','F'],
-         'height':[1.62,1.78,1.63,1.83,1.72]}
-df = pd.DataFrame(data)
-df_filtered = df[df['name'].str.startswith(('A','C'))]
-print(df_filtered)
-      name  age gender  height
-0    Alice   25      F    1.62
-2  Charlie   35      M    1.63
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
+print(df.tail(2))
 
-[ ]
- import pandas as pd
- data = {'name':['Alice','Bob','Charlie','David','Emily'],'age':[25,30,35,40,45],'salary':[50000,60000,70000,80000,90000],'gender':['F','M','M','M','F']}
- df = pd.DataFrame(data)
- print(df.tail(3))
-      name  age  salary gender
-2  Charlie   35   70000      M
-3    David   40   80000      M
-4    Emily   45   90000      F
+OUTPUT:
+   Name  age  height gender
+1  tina   24    1.65      f
+2  uday   40    1.78      f
 
-[ ]
+33.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],'age':[25,30,35,40,45],'salary':[50000,60000,70000,80000,90000],'gender':['F','M','M','M','F']}
-df = pd.DataFrame(data)
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
 print(df.head(2))
-    name  age  salary gender
-0  Alice   25   50000      F
-1    Bob   30   60000      M
 
-[ ]
+OUTPUT:
+   Name  age  height gender
+0  arul   23    1.62      f
+1  tina   24    1.65      f
+
+34.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],'age':[25,30,35,40,45],'salary':[50000,60000,70000,80000,90000],'gender':['F','M','M','M','F']}
-df = pd.DataFrame(data)
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
 df.info()
+
+OUTPUT:
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 5 entries, 0 to 4
+RangeIndex: 3 entries, 0 to 2
 Data columns (total 4 columns):
- #   Column  Non-Null Count  Dtype 
----  ------  --------------  ----- 
- 0   name    5 non-null      object
- 1   age     5 non-null      int64 
- 2   salary  5 non-null      int64 
- 3   gender  5 non-null      object
-dtypes: int64(2), object(2)
-memory usage: 288.0+ bytes
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   Name    3 non-null      object 
+ 1   age     3 non-null      int64  
+ 2   height  3 non-null      float64
+ 3   gender  3 non-null      object 
+dtypes: float64(1), int64(1), object(2)
+memory usage: 228.0+ bytes
 
-[ ]
+35.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],'age':[25,30,35,40,45],'salary':[50000,60000,70000,80000,90000],'gender':['F','M','M','M','F']}
-df = pd.DataFrame(data)
-print(df.describe())
-             age        salary
-count   5.000000      5.000000
-mean   35.000000  70000.000000
-std     7.905694  15811.388301
-min    25.000000  50000.000000
-25%    30.000000  60000.000000
-50%    35.000000  70000.000000
-75%    40.000000  80000.000000
-max    45.000000  90000.000000
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
+df.describe()
 
-[ ]
+OUTPUT:
+	age 	height
+count 	3.000000 	3.000000
+mean 	29.000000 	1.683333
+std 	9.539392 	0.085049
+min 	23.000000 	1.620000
+25% 	23.500000 	1.635000
+50% 	24.000000 	1.650000
+75% 	32.000000 	1.715000
+max 	40.000000 	1.780000
+
+36.
 import pandas as pd
-data = {'name':['Alice','Bob','Charlie','David','Emily'],'age':[25,30,35,40,45],'salary':[50000,60000,70000,80000,90000],'gender':['F','M','M','M','F']}
-df = pd.DataFrame(data)
-df_sorted = df.sort_values(by='age',ascending=False)
+data={'Name':['arul','tina','uday'],'age':[23,24,40],'height':[1.62,1.65,1.78],'gender':["f","f","f"]}
+df=pd.DataFrame(data)
+df_sorted=df.sort_values(by='age',ascending=False) #name of rows =index # object is string
 print(df_sorted)
-      name  age  salary gender
-4    Emily   45   90000      F
-3    David   40   80000      M
-2  Charlie   35   70000      M
-1      Bob   30   60000      M
-0    Alice   25   50000      F
+
+OUTPUT:
+   Name  age  height gender
+2  uday   40    1.78      f
+1  tina   24    1.65      f
+0  arul   23    1.62      f
+
+37.
+import pandas as pd
+data={'Name':['arul','tina','uday','ram','rahul'],'age':[23,24,26,27,25],'gender':["f","f","f","m","m"],'salary':[100000,90000,80000,70000,90000]}
+df=pd.DataFrame(data)
+grouped=df.groupby('gender')['salary'].mean()
+print(grouped)
+
+OUTPUT:
+gender
+f    90000.0
+m    80000.0
+Name: salary, dtype: float64
+
 ```
 # RESULT:
 Thus we performed our required program.
