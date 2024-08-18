@@ -1,10 +1,16 @@
 # Assignment-lab-intro-DS
+
 # NAME: INFANTINA MARIA L
+
 # REG: 212223100013
+
 # DEPT: CSE [CYBER SECURITY]
+
 # AIM:
 To write a python program for inserting columns, rows and changing these etc.
+
 # PROGRAM AND OUTPUT:
+
 ```
 1.
 import pandas as pd
